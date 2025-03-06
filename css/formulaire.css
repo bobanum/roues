@@ -1,0 +1,29 @@
+form {
+	background-color: #f0f0f0;
+	display: grid;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border: 1px solid black;
+	grid-template-columns: auto 12ch;
+	padding: .5em;
+	gap: .25em .5em;
+	> div {
+		display: grid;
+		grid-template-columns: subgrid;
+		grid-column: 1 / -1;
+		> label {
+			display: grid;
+			place-items: center;
+		}
+		> input {
+			margin: 0em;
+			border: 1px solid black;
+			border-radius: 0.25em;
+			padding: 0.25em;
+			text-align: right;
+			font: inherit;
+			box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.5);
+		}
+	}
+}

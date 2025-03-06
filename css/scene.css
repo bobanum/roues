@@ -1,0 +1,15 @@
+#ciel {
+	fill: #e5e5ff;
+}
+
+#roue {
+	fill: #000000;
+}
+
+#plancher {
+	fill: #6d503d;
+}
+main {
+	display: flex;
+	justify-content: center;
+}
