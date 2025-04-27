@@ -2,11 +2,18 @@ body {
 	font-family: 'Roboto', sans-serif;
 	margin: 0;
 	padding: 0;
-	overflow: hidden;
+	/* overflow: hidden; */
+	/* justify-content: center; */
+}
+* {
+	box-sizing: border-box;
+}
+#interface {
+	height: 100vh;
 	display: grid;
 	grid-template-rows: auto 1fr;
-	grid-template-columns: 1024px;
-	justify-content: center;
+	grid-template-columns: 1fr auto;
+	grid-template-areas: "header formulaire" "main formulaire";
 }
 h1, h2, h3, h4, h5, h6 {
 	margin: 0;

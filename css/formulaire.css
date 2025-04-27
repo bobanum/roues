@@ -1,29 +1,157 @@
 form {
-	background-color: #f0f0f0;
+	--h: 200;
+	--s: 20%;
+	--l: 90%;
+	--d: 30%;
+	background-color: hsl(var(--h), var(--s), var(--l));
 	display: grid;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	border: 1px solid black;
-	grid-template-columns: auto 12ch;
+	/* border: 1px solid black; */
+	grid-template-columns: minmax(auto, 15ch) 7em;
 	padding: .5em;
-	gap: .25em .5em;
-	> div {
+	gap: .5em;
+	grid-area: formulaire;
+	align-content: start;
+	/* box-shadow: .25em 0 .25em .25em rgba(0, 0, 0, 0.5); */
+	filter: drop-shadow(0 0 .125em rgba(0, 0, 0, 0.3));
+	position: relative;
+	color: hsl(var(--h), var(--s), var(--d));
+	&::after {
+		--width:1.5ch;
+		--height: 4em;
+		content: '•\A•\A•';
+		white-space: pre;
+		color: hsl(var(--h), var(--s), 90%);
+		text-shadow: -1px -1px 2px #0008, 1px 1px 2px #ffff;
+		position: absolute;
+		top: calc(50% - var(--height) / 2);
+		right: 100%;
+		width: var(--width);
+		height: var(--height);
+		background-color: inherit;
+		/* box-shadow: inherit; */
+		/* opacity: 0.5; */
+		z-index: 1;
+		line-height: .8;
+		display: flex;
+		place-items: center;
+		place-content: center;
+		border-radius: 0.25em 0 0 0.25em;
+	}
+	>fieldset {
+		border: none;
 		display: grid;
 		grid-template-columns: subgrid;
-		grid-column: 1 / -1;
-		> label {
-			display: grid;
-			place-items: center;
+		grid-column: 1/-1;
+		margin: 0;
+		padding: 0;
+		gap: .5em;
+
+		>h1 {
+			font-size: 1em;
+			background-color: hsl(var(--h), var(--s), calc(var(--l) - 10%));
+			font-weight: bold;
+			text-align: center;
+			grid-column: 1 / -1;
+			text-shadow: 0px 1px #fff;
+
 		}
-		> input {
-			margin: 0em;
-			border: 1px solid black;
+
+		
+		>div {
+			display: grid;
+			grid-template-columns: subgrid;
+			gap: .25em .5em;
+			grid-column: 1 / -1;
+
+			>label {
+				display: grid;
+				align-items: center;
+				line-height: 1;
+			}
+
+			input {
+				font: inherit;
+				margin: 0em;
+				border: 1px solid black;
+				border-radius: 0.25em;
+				padding: 1px 2px;
+				text-align: center;
+				font: inherit;
+				/* box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.5); */
+				align-self: center;
+				justify-self: stretch;
+				width: 100%;
+				position: relative;
+			}
+			output {
+				font-size: .8em;
+				line-height: 1;
+				justify-self: center;
+				margin-top: -.5em;
+			}
+			fieldset {
+				display: grid;
+				margin: 0;
+				padding: 0;	
+				border: none;
+			}
+		}
+	}
+
+	.buttons {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(3em,1fr));
+		gap: 0.5em;
+		align-self: stretch;
+		grid-column: 1 / -1;
+
+		button {
+			display: flex;
+			align-self: stretch;
+			place-items: center;
+			place-content: center;
+			padding: .25em 0;
+			line-height: 1;
+			color: hsl(var(--h), var(--s), var(--l));
+			font-size: 1.25em;
+			border: none;
 			border-radius: 0.25em;
-			padding: 0.25em;
-			text-align: right;
-			font: inherit;
-			box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.5);
+			background-color: hsl(var(--h), var(--s), var(--d));
+		}
+		#play::before {
+			content: '';
+			border: .5em solid transparent;
+			border-left-color: hsl(var(--h), var(--s), 100%);
+			border-left-width: .75em;
+			border-right-width: 0;
+			margin-left: .25em;
+		}
+		#stop::before {
+			content: '';
+			border: .4em solid hsl(var(--h), var(--s), 100%);
+		}
+		#pause::before {
+			content: '';
+			border: .3em solid hsl(var(--h), var(--s), 100%);
+			width: .2em;
+			height: .8em;
+			border-width: 0 .3em;
+		}
+		#pause::before {
+			content: '';
+			border: .3em solid hsl(var(--h), var(--s), 100%);
+			width: 0em;
+			height: .8em;
+			background-color: red;
+			border-width: 0 .3em 0 0;
+			transform: rotate(180deg);
+		}
+		#pause::after {
+			content: '';
+			border: .5em solid transparent;
+			border-right-color: hsl(var(--h), var(--s), 100%);
+			border-right-width: .6em;
+			border-left-width: 0;
 		}
 	}
 }
